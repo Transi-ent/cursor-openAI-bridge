@@ -120,9 +120,9 @@ chmod +x start.sh stop.sh tunnel.sh scripts/port.sh
 2. **Override OpenAI Base URL**：`https://xxxx.ngrok-free.app/v1`（或按你环境实测去掉 `/v1`）
 3. **Add Custom Model**：名称与 `config.yaml` 中 `model_aliases` 的**左侧键**一致
 
-### 停止
+### 如何停服
 
-| 系统 | 停止代理 | 停止 ngrok |
+| 系统 | 停止代理服务 | 停止 ngrok |
 |------|----------|------------|
 | Windows | `.\stop.ps1` 或终端 A `Ctrl+C` | 终端 B `Ctrl+C` |
 | macOS / Linux | `./stop.sh` 或 `Ctrl+C` | `Ctrl+C` |
