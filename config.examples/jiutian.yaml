@@ -1,0 +1,16 @@
+# 九天 MoMA（中国移动）
+provider: jiutian
+
+server:
+  host: "127.0.0.1"
+  port: 8787
+
+upstream:
+  base_url: "https://jiutian.10086.cn/largemodel/moma/api/v3"
+  chat_path: "/chat/completions"
+  timeout_seconds: 120
+
+model_aliases:
+  GLM-5.1: "z.ai/glm-5.1"
+  deepseek-v4-flash: "deepseek/deepseek-v4-flash"
+  qwen3.5-27b: "qwen/qwen3.5-27b"

@@ -1,0 +1,14 @@
+# 通用模板：任意 OpenAI 兼容中转
+provider: custom
+
+server:
+  host: "127.0.0.1"
+  port: 8787
+
+upstream:
+  base_url: "https://api.example.com/v1"
+  chat_path: "/chat/completions"
+  timeout_seconds: 120
+
+model_aliases:
+  my-model: "provider/real-model-id"

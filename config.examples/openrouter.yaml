@@ -1,0 +1,18 @@
+# OpenRouter（https://openrouter.ai）
+# base_url 填到 /v1，不要带 /chat/completions
+provider: openrouter
+
+server:
+  host: "127.0.0.1"
+  port: 8787
+
+upstream:
+  base_url: "https://openrouter.ai/api/v1"
+  chat_path: "/chat/completions"
+  timeout_seconds: 120
+
+model_aliases:
+  # Cursor 别名 -> OpenRouter model id（按你账号可用模型修改）
+  gpt-4o: "openai/gpt-4o"
+  claude-sonnet: "anthropic/claude-sonnet-4"
+  glm-4-7: "z-ai/glm-4.7"

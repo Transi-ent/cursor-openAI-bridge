@@ -1,0 +1,19 @@
+# 自建 One API / New API 等（标准 OpenAI 兼容 /v1）
+# 将 base_url 改成你的中转站地址
+provider: oneapi
+
+server:
+  host: "127.0.0.1"
+  port: 8787
+
+upstream:
+  base_url: "https://your-oneapi.example.com/v1"
+  chat_path: "/chat/completions"
+  timeout_seconds: 120
+
+model_aliases:
+  # 若上游模型 id 与 Cursor 显示名一致，可写成相同字符串
+  gpt-4o: "gpt-4o"
+  deepseek-chat: "deepseek-chat"
+  # 含斜杠的 id 需单独起别名，例如：
+  # my-claude: "anthropic/claude-3.5-sonnet"

@@ -1,0 +1,37 @@
+# =============================================================================
+# 唯一配置文件：切换上游、切换模型都只改本文件，改完后执行 stop + start 重启代理
+# 参考模板见 config.examples/ 目录（仅查阅，不必复制覆盖）
+# =============================================================================
+
+provider: jiutian
+
+server:
+  host: "127.0.0.1"
+  port: 8787
+
+# --- 上游中转（换一家时改 provider + base_url，必要时改 chat_path）---
+upstream:
+  base_url: "https://jiutian.10086.cn/largemodel/moma/api/v3"
+  chat_path: "/chat/completions"
+  timeout_seconds: 120
+
+# 其它上游示例（用时取消注释并注释掉上面 upstream 整段，二选一）：
+#
+# OpenRouter:
+#   provider: openrouter
+#   upstream:
+#     base_url: "https://openrouter.ai/api/v1"
+#     chat_path: "/chat/completions"
+#
+# One API / New API:
+#   provider: oneapi
+#   upstream:
+#     base_url: "https://your-oneapi.example.com/v1"
+#     chat_path: "/chat/completions"
+
+# --- 模型别名：左侧 = Cursor 里填写的名称；右侧 = 上游真实 model id ---
+# 切换模型：增删下面行，或在 Cursor 中选已存在的左侧名称；不要用带 / 的右侧 id
+model_aliases:
+  GLM-5.1: "z.ai/glm-5.1"
+  deepseek-v4-flash: "deepseek/deepseek-v4-flash"
+  qwen3.5-27b: "qwen/qwen3.5-27b"
